@@ -35,6 +35,14 @@ router.get('/addInventory',function (request,response) {
    });
 });
 
+// get Inventory
+router.get('/GetInventory',function (req,res,next) {
+    InventoryItem.find(function (err,InventoryItems) {
+        res.send(InventoryItems);
+    });
+
+});
+
 //update a item in inventory
 router.get('/updateInventory',function (request,response) {
     InventoryItem.count( {name:request.body.name}, function (err, count){
