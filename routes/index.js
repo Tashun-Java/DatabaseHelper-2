@@ -18,7 +18,7 @@ router.get('/FoodItems',function (req,res,next) {
 });
 
 //add a new Item to intentory
-router.post('/addInventory',function (request,response) {
+router.get('/addInventory',function (request,response) {
     var inventoryItem= new InventoryItem({
         name:request.body.name,
         quantity:request.body.quantity,
@@ -36,7 +36,7 @@ router.post('/addInventory',function (request,response) {
 });
 
 //update a item in inventory
-router.post('/updateInventory',function (request,response) {
+router.get('/updateInventory',function (request,response) {
     InventoryItem.count( {name:request.body.name}, function (err, count){
         if (count>0){
             response.send({validity:true});
