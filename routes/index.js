@@ -18,7 +18,7 @@ router.get('/FoodItems',function (req,res,next) {
 });
 
 //add a new Item to intentory
-router.get('/addInventory',function (request,response) {
+router.post('/addInventory',function (request,response) {
     var inventoryItem= new InventoryItem({
         name:request.body.name,
         quantity:request.body.quantity,
