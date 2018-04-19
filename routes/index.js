@@ -21,8 +21,7 @@ router.get('/FoodItems',function (req,res,next) {
 router.post('/addInventory',function (request,response) {
     var inventoryItem= new InventoryItem({
         name:request.body.name,
-        quantity:request.body.quantity,
-        stockMin:request.body.stockMin
+        stock:request.body.stock
 
     });
    inventoryItem.save(function (err) {
@@ -30,7 +29,7 @@ router.post('/addInventory',function (request,response) {
            throw err;
        }
        else {
-           response.send({validity:true});
+           response.send("Data Saved Successfully!");
        }
    });
 });
