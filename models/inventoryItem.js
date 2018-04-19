@@ -3,8 +3,7 @@ var Schema =mongoose.Schema;
 
 var schema=new Schema({
     name : String,
-    Quantity : Number,
-    stockMin : Number
+    stock : String
 
 
 });
