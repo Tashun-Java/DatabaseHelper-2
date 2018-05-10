@@ -45,7 +45,24 @@ router.post("/updateInventoryItem", function (req, res, next) {
 
 
 });
+router.post('/addFoodItem',function (request,response) {
+    var foodItem = new FoodItem({
+        name: request.body.obj.name,
+        image:request.body.obj.image,
+        price:request.body.obj.price,
+        ingredients:request.body.obj.ingredients
 
+
+    });
+    foodItem.save(function (err) {
+        if (err) {
+            throw err;
+        }
+        else {
+            response.send("Data Saved Successfully!");
+        }
+    });
+});
 
 // get Inventory
 router.get('/GetInventory', function (req, res, next) {
