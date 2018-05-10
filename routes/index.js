@@ -71,7 +71,6 @@ router.post('/addFoodItem',function (request,response) {
             response.send("Data Saved Successfully!");
         }
     });
-    //console.log(request.body);
 
 });
 
