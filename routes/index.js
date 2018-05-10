@@ -55,10 +55,10 @@ router.post("/updateInventoryItem", function (req, res, next) {
 router.post('/addFoodItem',function (request,response) {
 
     var foodItem = new FoodItem({
-        name: request.body.name,
-        image:request.body.image,
-        price:request.body.price,
-        ingredients: request.body.ingredients
+        name: request.body.obj.name,
+        image:request.body.obj.image,
+        price:request.body.obj.price,
+        ingredients: request.body.obj.ingredients
 
 
 
