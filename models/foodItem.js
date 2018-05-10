@@ -2,9 +2,9 @@ var mongoose =require('mongoose');
 var Schema =mongoose.Schema;
 
 var schema=new Schema({
-    image : String,
-    name : String,
-    price : String
+    image : {type: String, required: true},
+    name : {type: String, required: true},
+    price : {type: String, required: true}
 
 
 });
