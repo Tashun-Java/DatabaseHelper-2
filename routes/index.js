@@ -34,6 +34,13 @@ router.post('/addInventory', function (request, response) {
     });
 });
 
+
+router.post('/name', function (request, response) {
+        console.log(request.body.name);
+
+
+});
+
 router.post("/updateInventoryItem", function (req, res, next) {
     InventoryItem.findOneAndUpdate(
         {name: req.body.name},
@@ -46,11 +53,13 @@ router.post("/updateInventoryItem", function (req, res, next) {
 
 });
 router.post('/addFoodItem',function (request,response) {
+
     var foodItem = new FoodItem({
-        name: request.body.obj.name,
-        image:request.body.obj.image,
-        price:request.body.obj.price,
-        ingredients:request.body.obj.ingredients
+        name: request.body.name,
+        image:request.body.image,
+        price:request.body.price,
+        ingredients: request.body.ingredients
+
 
 
     });
@@ -62,6 +71,8 @@ router.post('/addFoodItem',function (request,response) {
             response.send("Data Saved Successfully!");
         }
     });
+    //console.log(request.body);
+
 });
 
 // get Inventory
