@@ -53,17 +53,20 @@ router.post("/updateInventoryItem", function (req, res, next) {
 
 });
 router.post('/addFoodItem',function (request,response) {
+    var foodSent=request.body.obj;
+    var foodObj=JSON.parse(foodSent);
 
-    var foodItem = new FoodItem({
-        name: request.body.obj.name,
-        image:request.body.obj.image,
-        price:request.body.obj.price,
-        ingredients: request.body.obj.ingredients
+        var foodItem = new FoodItem({
+            name: foodObj.name,
+            image:foodObj.image,
+            price:foodObj.price,
+            ingredients: foodObj.ingredients
 
 
 
-    });
-    foodItem.save(function (err) {
+        });
+        console.log(foodItem);
+   foodItem.save(function (err) {
         if (err) {
             throw err;
         }
