@@ -3,7 +3,8 @@ var Schema =mongoose.Schema;
 
 var schema=new Schema({
     name : String,
-    stock : String
+    stock : String,
+    unit: String
 
 
 });
