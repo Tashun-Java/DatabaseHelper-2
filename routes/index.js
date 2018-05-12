@@ -25,12 +25,61 @@ router.get('/FoodItems', function (req, res, next) {
         res.send(FoodItems);
     });
 });
+//get Beverage
+router.get('/getBeverages', function (req, res, next) {
+    BeverageItem.find(function (err, BeverageItems) {
+        res.send(BeverageItems);
+    });
+});
+//get Desserts
+router.get('/getDesserts', function (req, res, next) {
+    DessertItem.find(function (err, DessertItems) {
+        res.send(DessertItems);
+    });
+});
+//get Juices
+router.get('/getJuices', function (req, res, next) {
+    JuiceItem.find(function (err, JuiceItems) {
+        res.send(JuiceItems);
+    });
+});
+//get kottu
+router.get('/getKottu', function (req, res, next) {
+    KottuItem.find(function (err, KottuItems) {
+        res.send(KottuItems);
+    });
+});
+//get noodles
+router.get('/getNoodles', function (req, res, next) {
+    NoodlesItem.find(function (err, NoodlesItems) {
+        res.send(NoodlesItems);
+    });
+});
+//get rice and curry
+router.get('/getRiceAndCurry', function (req, res, next) {
+    RiceAndCurryItem.find(function (err, RiceAndCurryItem) {
+        res.send(RiceAndCurryItem);
+    });
+});
+//get Short Eat
+router.get('/getShortEat', function (req, res, next) {
+    ShortEatItem.find(function (err, ShortEatItems) {
+        res.send(ShortEatItems);
+    });
+});
+//get special Items
+router.get('/getSpecials', function (req, res, next) {
+    SpecialItem.find(function (err, SpecialItems) {
+        res.send(SpecialItems);
+    });
+});
 
 //add a new Item to intentory
 router.post('/addInventory', function (request, response) {
     var inventoryItem = new InventoryItem({
         name: request.body.name,
-        stock: request.body.stock
+        stock: request.body.stock,
+        unit:request.body.unit
 
     });
     inventoryItem.save(function (err) {
