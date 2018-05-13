@@ -8,6 +8,7 @@ var NoodlesItem=require('../models/noodleItem');
 var RiceAndCurryItem=require('../models/riceAndCurryItem');
 var ShortEatItem=require('../models/shortEatItem');
 var SpecialItem=require('../models/specialItem');
+var TableItem=require('../models/tableItem')
 
 var InventoryItem = require('../models/inventoryItem');
 var router = express.Router();
@@ -83,6 +84,23 @@ router.post('/addInventory', function (request, response) {
 
     });
     inventoryItem.save(function (err) {
+        if (err) {
+            throw err;
+        }
+        else {
+            response.send("Data Saved Successfully!");
+        }
+    });
+});
+
+//add a table
+router.post('/addTable', function (request, response) {
+    var tableItem = new TableItem({
+        table: request.body.table,
+        seat: request.body.seat
+
+    });
+    tableItem.save(function (err) {
         if (err) {
             throw err;
         }
@@ -340,6 +358,13 @@ router.post('/addSpecialItem',function (request,response) {
 router.get('/GetInventory', function (req, res, next) {
     InventoryItem.find(function (err, InventoryItems) {
         res.send(InventoryItems);
+    });
+
+});
+//get table
+router.get('/GetTable', function (req, res, next) {
+    TableItem.find(function (err, TableItems) {
+        res.send(TableItems);
     });
 
 });
