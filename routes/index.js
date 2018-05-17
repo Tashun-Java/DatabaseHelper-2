@@ -441,7 +441,7 @@ router.post("/updateInventoryForAnOrder", function (request, response) {
             console.log("here");
             console.log(err);
         }
-        if (request.body.unit === ("unit")) {
+        if (request.body.unit === ("units")) {
             var value1 = (Number(inventory[0].stock) - Number(request.body.stock)).toString();
             console.log(value1 + "If method");
         }
