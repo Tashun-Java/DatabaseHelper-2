@@ -442,11 +442,11 @@ router.post("/updateInventoryForAnOrder", function (request, response) {
             console.log(err);
         }
         if (request.body.unit === ("units")) {
-            var value1 = (Number(inventory[0].stock) - Number(request.body.stock)).toString();
+            var value1 = ((Number(inventory[0].stock) - Number(request.body.stock)*Number(request.body.quantity)).toString();
             console.log(value1 + "If method");
         }
         else {
-            var value1 = (Number(inventory[0].stock) - (Number(request.body.stock) / 1000)).toString();
+            var value1 = ((Number(inventory[0].stock) - (Number(request.body.stock)*Number(request.body.quantity)) / 1000)).toString();
             console.log("Else Method");
         }
 
@@ -455,7 +455,7 @@ router.post("/updateInventoryForAnOrder", function (request, response) {
 
             InventoryItem.findOneAndUpdate(
                 {name: request.body.name},
-                {$set: {stock: (value1*Number(request.body.quantity))}},
+                {$set: {stock: (value1)}},
                 {returnOriginal: false})
                 .then(function (result) {
                     response.send(result);
