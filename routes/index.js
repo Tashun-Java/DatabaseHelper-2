@@ -455,7 +455,7 @@ router.post("/updateInventoryForAnOrder", function (request, response) {
 
             InventoryItem.findOneAndUpdate(
                 {name: request.body.name},
-                {$set: {stock: value1}},
+                {$set: {stock: (value1*Number(request.body.quantity))}},
                 {returnOriginal: false})
                 .then(function (result) {
                     response.send(result);
