@@ -442,11 +442,11 @@ router.post("/updateInventoryForAnOrder", function (request, response) {
             console.log(err);
         }
         if (request.body.unit === ("units")) {
-            var value1 = ((Number(inventory[0].stock) - Number(request.body.stock)*Number(request.body.quantity)).toString();
+            var value1 = ((Number(inventory[0].stock) - (Number(request.body.stock)*Number(request.body.quantity)))).toString();
             console.log(value1 + "If method");
         }
         else {
-            var value1 = ((Number(inventory[0].stock) - (Number(request.body.stock)*Number(request.body.quantity)) / 1000)).toString();
+            var value1 = ((Number(inventory[0].stock) - ((Number(request.body.stock)*Number(request.body.quantity))) / 1000)).toString();
             console.log("Else Method");
         }
 
