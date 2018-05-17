@@ -435,24 +435,23 @@ function respond(response, result) {
 
 //update the inventory for an order
 router.post("/updateInventoryForAnOrder", function (request, response) {
-
     InventoryItem.find({name: request.body.name}, function (err, inventory) {
 
         if (err) {
             console.log("here");
             console.log(err);
         }
+        if (request.body.unit === ("unit")) {
+            var value1 = (Number(inventory[0].stock) - Number(request.body.stock)).toString();
+            console.log(value1 + "If method");
+        }
+        else {
+            var value1 = (Number(inventory[0].stock) - (Number(request.body.stock) / 1000)).toString();
+            console.log("Else Method");
+        }
 
+        if (Number(value1) > 0) {
 
-        if ((Number(inventory[0].stock) - Number(request.body.stock)) > 0) {
-            if (request.body.unit === ("unit")) {
-                var value1 = (Number(inventory[0].stock) - Number(request.body.stock)).toString();
-                console.log(value1 + "If method");
-            }
-            else {
-                var value1 = (Number(inventory[0].stock) - (Number(request.body.stock) / 1000)).toString();
-                console.log("Else Method");
-            }
 
             InventoryItem.findOneAndUpdate(
                 {name: request.body.name},
